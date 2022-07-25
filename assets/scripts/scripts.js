@@ -1,6 +1,7 @@
 // set up the global variables to get the elements from index.html for display and styling.
 let htmlEl = document.querySelector("html");
 let universalEl = document.querySelector("*");
+let bodyEl = document.querySelector("body");
 let viewHighScores = document.querySelector("#view-high-scores");
 let headerH1 = document.querySelector("#header-h1");
 let quizSection = document.querySelector("#quiz-section");
@@ -74,6 +75,11 @@ universalEl.setAttribute(
 //  percentahge of user's browsers font-size setting
 htmlEl.setAttribute("style", "font-size: 62.5%;");
 
+bodyEl.setAttribute(
+  "style",
+  "background-color: #fff;font-family: Rubik sans-serif;"
+);
+
 // starter page for quiz
 function init() {
   // display at the top right hand corner of the screen, the link to view the highest scores
@@ -117,41 +123,19 @@ function init() {
   quizSection.appendChild(startButton);
 }
 
+// quiz function calls the createButton to create the multiple choice answer button function for each question
 function quiz() {
-  // display the title for the starter page
-  // headerH1.textContent =
-  //   "String values must be enclosed within ______ when being assigned to variables. ";
-
-  // // apply styling to the title
-  // headerH1.setAttribute(
-  //   "style",
-  //   "text-align:center;font-weight:bold;font-size:4rem;margin-top:4rem;"
-  // );
-
-  //  apply styling to the quiz section to center the title and introduction text using flex box.
-  // quizSection.setAttribute(
-  //   "style",
-  //   "display:flex;flex-direction:column;justify-content:center;align-items:center;"
-  // );
-
-  // add the introduction text for the starter page
-  // quizMainText.textContent =
-  //   "Try to answer the following code-related questions withing the time limit. Keep in mind that incorrect answers will penalize your score/time by 10 seconds.";
-
-  // apply styling to the introduction text for the starter page
-  // quizMainText.setAttribute(
-  //   "style",
-  //   "text-align:center;font-size:2rem;margin-bottom:3rem;"
-  // );
-
+  // create an array for each multiple choice answer
   let questionButton = [];
   if (questionCount < 5) {
     createButtons(questionButton);
   }
 }
 
+// create each multiple choice answer button applying styles and checking for the correct or wrong answer selected with an appropriate message.
+// clears display for the next question once answer for the current question is selected.
 function createButtons(questionButton) {
-  console.log("in createButtons " + questionCount);
+  //  display the current question
   headerH1.textContent = quizQuestions[questionCount];
   // increase fontsize and align left.
   headerH1.setAttribute("style", "text-align:left;font-size:5rem;");
@@ -163,17 +147,22 @@ function createButtons(questionButton) {
   );
 
   for (i = 0; i < 4; i++) {
-    // Create the start quiz button to be displayed under the introduction text.
+    // Create the four mutiple choice question buttons to be displayed under the question
     questionButton[i] = document.createElement("button");
     console.log(i);
     if (questionCount === 0)
+      // add the text for the first multiple choice answer
       questionButton[i].textContent = i + 1 + ". " + quiz01[i][0];
     else if (questionCount === 1)
+      // add the text for the second multiple choice answer
       questionButton[i].textContent = i + 1 + ". " + quiz02[i][0];
     else if (questionCount === 2)
+      // add the text for the third multiple choice answer
       questionButton[i].textContent = i + 1 + ". " + quiz03[i][0];
     else if (questionCount === 3)
+      // add the text for the fourth multiple choice answer
       questionButton[i].textContent = i + 1 + ". " + quiz04[i][0];
+    // add the text for the fifth multiple choice answer
     else questionButton[i].textContent = i + 1 + ". " + quiz05[i][0];
 
     questionButton[i].setAttribute(
@@ -199,7 +188,7 @@ function createButtons(questionButton) {
     }, 1000);
   });
 
-  // Add click event for multichoice 1 button element
+  // Add click event for multichoice 2 button element
   questionButton[1].addEventListener("click", function (event) {
     let element = event.target;
 
@@ -215,7 +204,7 @@ function createButtons(questionButton) {
     }, 1000);
   });
 
-  // Add click event for multichoice 1 button element
+  // Add click event for multichoice 3 button element
   questionButton[2].addEventListener("click", function (event) {
     let element = event.target;
 
@@ -231,7 +220,7 @@ function createButtons(questionButton) {
     }, 1000);
   });
 
-  // Add click event for multichoice 1 button element
+  // Add click event for multichoice 4 button element
   questionButton[3].addEventListener("click", function (event) {
     let element = event.target;
 
@@ -239,7 +228,7 @@ function createButtons(questionButton) {
       questionEvent(3);
     }
 
-    // clear display
+    // clear multiple choice question buttons after one second display
     setTimeout(function () {
       clearDisplay(questionButton);
       // add one to the questionCount for display the correct question
@@ -249,11 +238,11 @@ function createButtons(questionButton) {
   });
 }
 
-// check multichoice answer selected for the current question
+// check multichoice answers are selected for the current question
 function questionEvent(question) {
   switch (questionCount) {
     case 0:
-      // code block
+      // check the first multichoice button clicked is correct answer. Display correct or wrong message based on condition
       if (quiz01[question][1] === "c") {
         correct();
       } else {
@@ -261,7 +250,7 @@ function questionEvent(question) {
       }
       break;
     case 1:
-      // code block
+      // check the second multichoice button clicked is correct answer. Display correct or wrong message based on condition
       if (quiz02[question][1] === "c") {
         correct();
       } else {
@@ -269,7 +258,7 @@ function questionEvent(question) {
       }
       break;
     case 2:
-      // code block
+      // check the third multichoice button clicked is correct answer. Display correct or wrong message based on condition
       if (quiz03[question][1] === "c") {
         correct();
       } else {
@@ -277,7 +266,7 @@ function questionEvent(question) {
       }
       break;
     case 3:
-      // code block
+      // check the fourth multichoice button clicked is correct answer. Display correct or wrong message based on condition
       if (quiz04[question][1] === "c") {
         correct();
       } else {
@@ -285,6 +274,7 @@ function questionEvent(question) {
       }
       break;
     default:
+      // check the fifth multichoice button clicked is correct answer. Display correct or wrong message based on condition
       if (quiz05[question][1] === "c") {
         correct();
       } else {
@@ -293,28 +283,48 @@ function questionEvent(question) {
   }
 }
 
+// Display the correct message for one second
 function correct() {
+  // add a paragraph element
   let message = document.createElement("p");
+  // set text of paragraph element
   message.textContent = "Correct!";
-  message.setAttribute("style", "border-top:1rem solid #1b5e81e8, color:#333");
+  // apply style to the paragraph element
+  message.setAttribute(
+    "style",
+    "border-top:0.5rem solid #a3a3a3; color:#a3a3a3; font-size:3rem;font-style:italic;font-weight:bold;"
+  );
+  // Add the paragaph element to the quiz section in the index.html file
   quizSection.appendChild(message);
+  // Display the message for one second then clear the message
   setTimeout(function () {
     message.textContent = "";
+    message.setAttribute("style", "border-top:none;");
   }, 1000);
 }
 
+// Display the wrong message for one second
 function wrong() {
+  // add a paragraph element
   let message = document.createElement("p");
+  // set text of paragraph element
   message.textContent = "Wrong!";
-  message.setAttribute("style", "border-top:1rem solid #1b5e81e8, color:#333");
+  // apply style to the paragraph element
+  message.setAttribute(
+    "style",
+    "border-top:0.5rem solid #a3a3a3; color:#a3a3a3; font-size:3rem;font-style:italic;font-weight:bold;"
+  );
+  // Add the paragaph element to the quiz section in the index.html file
   quizSection.appendChild(message);
+  // Display the message for one second then clear the message
   setTimeout(function () {
     message.textContent = "";
+    message.setAttribute("style", "border-top:none;");
   }, 1000);
 }
 
 function clearDisplay(questionButton) {
-  // clear display for next question
+  // clear the current multiple choice buttons from the display for next question
   headerH1.textContent = "";
   quizSection.removeChild(questionButton[0]);
   quizSection.removeChild(questionButton[1]);
@@ -322,10 +332,11 @@ function clearDisplay(questionButton) {
   quizSection.removeChild(questionButton[3]);
 }
 
-// Add click event for multichoice 1 button element
+// event listener for start quiz button on starter page
 startButton.addEventListener("click", function (event) {
   let element = event.target;
   if (element.matches("button") === true) {
+    // clear the header, introduction message and starter button from the display in preparation for the multiple choice questions display
     headerH1.textContent = "";
     quizMainText.textContent = "";
     quizSection.removeChild(startButton);
