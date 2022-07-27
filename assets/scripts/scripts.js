@@ -23,6 +23,8 @@ let outOfTime = false;
 let message = document.createElement("p");
 // temporarily store score before saving to local storage
 let displayScore = 0;
+// keep check on when to record score for display
+let recoredScoreStatus = true;
 
 // Create a one dimentional array to hold each question
 let quizQuestions = [
@@ -383,7 +385,11 @@ function allDone() {
   headerH1.setAttribute("style", "text-align:left;font-size:4rem;");
 
   // add the final score text for all done page
-  displayScore = timeLeft;
+  if (recoredScoreStatus === true) {
+    displayScore = timeLeft;
+    recordScoreStatus = false;
+  }
+
   quizMainText.textContent = "Your final score is " + timeLeft + ".";
   // apply styling to the introduction text for the starter page
 
