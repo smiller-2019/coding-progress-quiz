@@ -8,8 +8,7 @@
 /* BELOW 1200px(Landscape tablets) breakpoint. */
 /*************************************/
 @media (max-width: 75em) {
-  /* make use of responsive units to reduce the size of everything */
-  /*9px / 16px == 56.25%  */
+  /* change container for All Done! function display for input of user initials and display of score. */
   #container {
     display: flex;
     flex-direction: column;
