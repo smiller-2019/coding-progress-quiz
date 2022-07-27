@@ -24,9 +24,9 @@ The following have been applied to the code:
 
 [link to deployed application](https://smiller-2019.github.io/coding-progress-quiz/)
 
-![Screenshot of webpage](https://github.com/smiller-2019/coding-progress-quiz/blob/main/images/start-page.png)
-![Screenshot of webpage](https://github.com/smiller-2019/coding-progress-quiz/blob/main/images/quiz-wrong.png)
-![Screenshot of webpage](https://github.com/smiller-2019/coding-progress-quiz/blob/main/images/quiz-right.png)
-![Screenshot of webpage](https://github.com/smiller-2019/coding-progress-quiz/blob/main/images/all-done.png)
-![Screenshot of webpage](https://github.com/smiller-2019/coding-progress-quiz/blob/main/images/view-scores.png)
-![Screenshot of webpage](https://github.com/smiller-2019/coding-progress-quiz/blob/main/images/clear-score.png)
+![Screenshot of webpage](https://github.com/smiller-2019/coding-progress-quiz/blob/main/assets/images/start-page.png)
+![Screenshot of webpage](https://github.com/smiller-2019/coding-progress-quiz/blob/main/assets/images/quiz-wrong.png)
+![Screenshot of webpage](https://github.com/smiller-2019/coding-progress-quiz/blob/main/assets/images/quiz-right.png)
+![Screenshot of webpage](https://github.com/smiller-2019/coding-progress-quiz/blob/main/assets/images/all-done.png)
+![Screenshot of webpage](https://github.com/smiller-2019/coding-progress-quiz/blob/main/assets/images/view-scores.png)
+![Screenshot of webpage](https://github.com/smiller-2019/coding-progress-quiz/blob/main/assets/images/clear-score.png)
