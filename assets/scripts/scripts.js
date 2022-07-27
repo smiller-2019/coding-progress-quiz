@@ -176,7 +176,6 @@ function countdown() {
       // Use `clearInterval()` to stop the timer
       clearInterval(timeInterval);
     }
-    displayScore = timeLeft;
     // check if the time has ran out, if so disable buttons and clear the
     // display for the allDone function call to display to display initials to be input and record score.
     if (timeLeft < 1 && outOfTime === false) {
@@ -196,7 +195,6 @@ function quiz() {
     createButtons(questionButton);
   } else {
     // display All Done message, prompt user for initials and display score
-    displayScore = timeLeft;
     allDone();
   }
 }
@@ -385,6 +383,7 @@ function allDone() {
   headerH1.setAttribute("style", "text-align:left;font-size:4rem;");
 
   // add the final score text for all done page
+  displayScore = timeLeft;
   quizMainText.textContent = "Your final score is " + timeLeft + ".";
   // apply styling to the introduction text for the starter page
 
