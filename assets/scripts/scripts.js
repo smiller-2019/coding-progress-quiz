@@ -382,6 +382,7 @@ function allDone() {
   headerH1.setAttribute("style", "text-align:left;font-size:4rem;");
 
   // add the final score text for all done page
+  let displayScore = timeLeft;
   quizMainText.textContent = "Your final score is " + timeLeft + ".";
   // apply styling to the introduction text for the starter page
 
@@ -434,7 +435,7 @@ function allDone() {
     // create user object from submission
     var user = {
       initials: initialsInput.value.trim(),
-      score: timeLeft,
+      score: displayScore,
     };
 
     // set new submission to local storage
