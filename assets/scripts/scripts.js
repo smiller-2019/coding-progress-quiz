@@ -88,6 +88,7 @@ universalEl.setAttribute(
 //  percentahge of user's browsers font-size setting
 htmlEl.setAttribute("style", "font-size: 62.5%;");
 
+// initailise the style for the body element.
 bodyEl.setAttribute(
   "style",
   "background-color: #fff;font-family: Rubik sans-serif;"
@@ -119,12 +120,12 @@ function init() {
   //  apply styling to the quiz section to center the title and introduction text using flex box.
   quizSection.setAttribute(
     "style",
-    "display:flex;flex-direction:column;row-gap:0.5rem;justify-content:flex-start;align-items:flex-start;width:80rem;margin-inline:auto;flex-wrap:wrap;"
+    "display:flex;flex-direction:column;row-gap:0.5rem;margin-inline:auto;width:60%;"
   );
 
   // add the introduction text for the starter page
   quizMainText.textContent =
-    "Try to answer the following code-related questions withing the time limit. Keep in mind that incorrect answers will penalize your score/time by 10 seconds.";
+    "Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by 10 seconds.";
 
   // apply styling to the introduction text for the starter page
   quizMainText.setAttribute(
@@ -190,7 +191,6 @@ function quiz() {
   questionButton = [];
   if (questionCount < 5 && outOfTime === false) {
     // continue to next question if time is greathan than 1 second
-    console.log("calling questionButton ");
     createButtons(questionButton);
   } else {
     // display All Done message, prompt user for initials and display score
@@ -201,11 +201,10 @@ function quiz() {
 // create each multiple choice answer button applying styles and checking for the correct or wrong answer selected with an appropriate message.
 // clears display for the next question once answer for the current question is selected.
 function createButtons(questionButton) {
-  console.log("in create buttons");
   //  display the current question
   headerH1.textContent = quizQuestions[questionCount];
   // increase fontsize and align left.
-  headerH1.setAttribute("style", "text-align:left;font-size:5rem;");
+  headerH1.setAttribute("style", "text-align:left;font-size:4rem;");
 
   for (i = 0; i < 4; i++) {
     // Create the four mutiple choice question buttons to be displayed under the question
@@ -345,7 +344,7 @@ function answer(answer) {
   // apply style to the paragraph element
   message.setAttribute(
     "style",
-    "border-top:0.5rem solid #a3a3a3; color:#a3a3a3; font-size:3rem;font-style:italic;font-weight:bold;width:100rem;"
+    "border-top:0.5rem solid #a3a3a3; color:#a3a3a3; font-size:3rem;font-style:italic;font-weight:bold;"
   );
   // Add the paragaph element to the quiz section in the index.html file
   quizSection.appendChild(message);
@@ -380,7 +379,7 @@ function allDone() {
   //  display the current question
   headerH1.textContent = "All Done!";
   // increase fontsize and align left.
-  headerH1.setAttribute("style", "text-align:left;font-size:5rem;");
+  headerH1.setAttribute("style", "text-align:left;font-size:4rem;");
 
   // add the final score text for all done page
   quizMainText.textContent = "Your final score is " + timeLeft + ".";
@@ -403,17 +402,17 @@ function allDone() {
   // apply styling to container.
   container.setAttribute(
     "style",
-    "display:flex;justify-content:left;align-items:baseline;gap:4rem; width:80rem;"
+    "display:flex;justify-content:;align-items:left;align-items:baseline;gap:4rem;width:58%"
   );
   // apply styling to enter initials prompt.
   initialsPrompt.setAttribute(
     "style",
-    "height:3rem; width:18rem;text-align:left;font-size:3rem;"
+    "height:3rem;text-align:left;font-size:3rem;"
   );
   // apply styling to textarea for entering initials.
   initialsInput.setAttribute(
     "style",
-    "height:3rem; width:40rem;resize:none;font-size:2rem;vertical-align:middle;"
+    "height:3rem;resize:none;font-size:2rem;width:40rem;"
   );
 
   initialsInput.setAttribute("autofocus", "autofocus");
@@ -422,7 +421,7 @@ function allDone() {
   // apply styling to button for submition of initials and score.
   submitButton.setAttribute(
     "style",
-    "height:4rem;width:10rem;background-color:#e879f9; color:#fff;font-size:2rem;border-color:#e879f9;border-radius:1rem;"
+    "height:4rem;background-color:#e879f9; color:#fff;font-size:2rem;border-color:#e879f9;border-radius:1rem;"
   );
 
   // add <p>, <textarea> and button to container and hence index.html.
@@ -442,9 +441,12 @@ function allDone() {
     localStorage.setItem("user", JSON.stringify(user));
 
     // call the view_high_scores html page to display initials and score from local storage
+    console.log("call to view_high_scores.html");
     window.location.href = "view_high_scores.html";
+    console.log("call after view_high_scores.html");
   });
 }
 
 // call the initialisation function for the starter page.
+console.log("call to initialise");
 init();

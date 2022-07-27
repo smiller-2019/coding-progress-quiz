@@ -1,0 +1,17 @@
+/* rem and em do NOT depend on html font-size in media queries!,
+ instead, 1rem == 1em == 16px (rem is the route font size and em 
+ is the current font size, so 1rem is 1em. rem has bugs in media 
+ queries so use em only, they work in the same way */
+/* ranges 1200 to 1350px divided by 16px  */
+
+/*************************************/
+/* BELOW 1200px(Landscape tablets) breakpoint. */
+/*************************************/
+@media (max-width: 75em) {
+  /* make use of responsive units to reduce the size of everything */
+  /*9px / 16px == 56.25%  */
+  #container {
+    display: flex;
+    flex-direction: column;
+  }
+}
